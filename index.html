@@ -8,8 +8,9 @@
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background-color: #000;
+      background: #000;
       color: #fff;
+      overflow-x: hidden;
     }
     header {
       position: relative;
@@ -20,6 +21,18 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+    }
+    /* Spotlight overlay */
+    header::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at center, rgba(255,215,0,0.2) 0%, transparent 60%);
+      animation: spotlightMove 10s infinite linear;
+      pointer-events: none;
     }
     header .overlay {
       position: absolute;
@@ -32,7 +45,7 @@
     }
     header h1 {
       font-size: 4rem;
-      text-shadow: 2px 2px 10px #000;
+      text-shadow: 0 0 20px gold, 0 0 40px #000;
       animation: slideUp 2s ease-in-out;
     }
     header p {
@@ -68,79 +81,4 @@
     .portfolio img {
       width: 300px;
       border-radius: 10px;
-      transition: 0.3s;
-      animation: fadeIn 2s ease-in-out;
-    }
-    .portfolio img:hover {
-      transform: scale(1.05);
-    }
-    footer {
-      background: #111;
-      padding: 20px;
-      text-align: center;
-      color: #aaa;
-      animation: fadeIn 2s ease-in-out;
-    }
-    footer a {
-      color: gold;
-      margin: 0 10px;
-      text-decoration: none;
-    }
-
-    /* Animations */
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    @keyframes slideUp {
-      from { transform: translate(-50%, 50%); opacity: 0; }
-      to { transform: translate(-50%, -50%); opacity: 1; }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Hero Banner with Video -->
-  <header>
-    <video autoplay muted loop playsinline>
-      <source src="YOUR_VIDEO_FILE.mp4" type="video/mp4">
-    </video>
-    <div class="overlay">
-      <h1>Daryaa Films</h1>
-      <p>Your Story. Our Creative Vision.</p>
-      <a href="#portfolio">Explore Our Work</a>
-    </div>
-  </header>
-
-  <!-- About Section -->
-  <section id="about">
-    <h2>About Us</h2>
-    <p>Daryaa Films is a creative production house dedicated to crafting cinematic experiences through films, music videos, and commercials. Our passion lies in storytelling that resonates with audiences worldwide.</p>
-  </section>
-
-  <!-- Portfolio Section with Uploaded Image -->
-  <section id="portfolio">
-    <h2>Portfolio</h2>
-    <div class="portfolio">
-      <img src="images/daryaa-poster.jpg" alt="Daryaa Films Project">
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p>Email: <a href="mailto:info@daryaafilms.com">info@daryaafilms.com</a></p>
-    <p>Phone: <a href="tel:+919999999999">+91 99999 99999</a></p>
-    <p>Follow us: 
-      <a href="https://www.instagram.com/daryaa.films" target="_blank">Instagram</a>
-      <a href="#">YouTube</a>
-      <a href="#">Facebook</a>
-    </p>
-  </section>
-
-  <footer>
-    <p>© 2026 Daryaa Films | All Rights Reserved</p>
-  </footer>
-
-</body>
-</html>
+      transition: 0.3
